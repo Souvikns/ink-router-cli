@@ -17,7 +17,11 @@
     "url": "git+https://github.com/Souvikns/ink-cli-parser.git"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Souvik De",
+    "email": "souvikde.ns@gmail.com",
+    "url": "https://github.com/Souvikns"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Souvikns/ink-cli-parser/issues"
