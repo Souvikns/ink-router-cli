@@ -6,6 +6,7 @@
         "rootDir": "lib",
         "strict": true,
         "jsx": "react",
+        "declaration": true,
         "strictNullChecks": true,
         "sourceMap": true,
         "noImplicitReturns": true,
