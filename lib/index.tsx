@@ -19,3 +19,4 @@ const parser = (HelpComponent: FC<any>) => {
 
 
 module.exports = parser;
+export default parser
