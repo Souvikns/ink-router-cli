@@ -53,3 +53,5 @@ console.log(cli)
 }
 
 ```
+
+![ss](https://github.com/Souvikns/ink-cli-parser/blob/main/ss.PNG)
