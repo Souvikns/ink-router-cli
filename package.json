@@ -51,5 +51,8 @@
   "peerDependencies": {
     "ink": ">=3.0.8",
     "react": ">=17.0.2"
+  },
+  "jest": {
+    "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.(tsx?)$"
   }
 }
