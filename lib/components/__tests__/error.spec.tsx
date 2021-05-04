@@ -6,6 +6,6 @@ import chalk from 'chalk';
 describe('Error Component', () => {
     it("should render bright red error message", () => {
         let { lastFrame } = render(<Error message="Missing Flags" />)
-        expect(lastFrame()).toMatch(chalk.redBright("Missing Flags"));
+        expect(lastFrame()).toMatch(chalk`Missing Flags`);
     })
 })
