@@ -56,7 +56,19 @@ export const checkForHelpFlags = (flags: any): boolean => {
     return false
 }
 
-export const checkFlags = (flags: any, flafOptions: OptionFlags | undefined) => {
+export const checkRequiredFlags = (flags: any, flagOptions: OptionFlags) => {
+    let found = false
+    for( const [key, value] of Object.entries(flagOptions)) {
+        if(value.required){
+            let fnd = Object.keys(flags).includes(key) || Object.keys(flags).includes(value.alias);
+            if(!fnd) found = true;
+        }
+    }
+
+    return found
+}
+
+export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined) => {
 
 }
 

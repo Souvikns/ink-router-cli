@@ -1,4 +1,4 @@
-import parser, { ParserOption, checkForHelpFlags } from './parser';
+import parser, { ParserOption, checkForHelpFlags, checkRequiredFlags } from './parser';
 
 const checkHelpcommand = (
     isHelpDisabled: boolean | undefined,
@@ -54,4 +54,21 @@ describe('checkAndRenderHelpCommand', () => {
     it("should return error Component", () => {
         expect(checkHelpcommand(undefined, undefined, "error")).toMatch(/error/);
     })
+})
+
+describe("checkRequiredFlags", () => {
+    it("should return true", () => {
+        expect(checkRequiredFlags({}, { watch: { alias: "w", required: true } })).toBeTruthy()
+    })
+
+    it("should return false", () => {
+        expect(checkRequiredFlags({ w: true }, { watch: { alias: "w", required: true } })).toBeFalsy();
+        expect(checkRequiredFlags({watch: true}, {watch: {alias: "w"}})).toBeFalsy();
+        expect(checkRequiredFlags({watch: true}, {watch: {alias: "w", required: true}})).toBeFalsy();
+    })
+
+    it("should return false if no options was passed", () => {
+        expect(checkRequiredFlags({}, {})).toBeFalsy();
+    })
+
 })
