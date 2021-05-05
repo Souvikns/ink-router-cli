@@ -3,8 +3,19 @@ import React, { FC } from 'react';
 import Error from './components/error';
 import { render } from 'ink';
 
+export type OptionType = "boolean" | "string" | "number"
+
+export interface OptionFlags {
+    [name: string]: {
+        required?: boolean,
+        type?: OptionType,
+        alias: string
+    }
+}
+
 export interface ParserOption {
     helpComponent?: FC<{ message: string }>,
+    flags?: OptionFlags
     option: {
         errorComponent?: FC<any>,
         disableHelp?: boolean
@@ -45,17 +56,22 @@ export const checkForHelpFlags = (flags: any): boolean => {
     return false
 }
 
+export const checkFlags = (flags: any, flafOptions: OptionFlags | undefined) => {
+
+}
+
 const parser = (options: ParserOption) => {
     let ErrorComponent: FC<{ message: string }> = (options.option.errorComponent) ? options.option.errorComponent : Error
     let HelpComponent: FC<any> | undefined = (!options.option.disableHelp) ? options.helpComponent : undefined;
 
     let { inputs, flags } = getCli();
 
+    // TODO: If cli do not has -h or --help flag then we will perform checks if any
     (checkForHelpFlags(flags)) ? checkAndRenderHelpCommand(
         options.option.disableHelp,
         HelpComponent,
         ErrorComponent
-    ) : null;
+    ) : checkFlags(flags, (options.flags) ? options.flags : undefined);
 
     return { inputs, flags };
 }
