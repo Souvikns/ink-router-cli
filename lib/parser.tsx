@@ -58,10 +58,10 @@ export const checkForHelpFlags = (flags: any): boolean => {
 
 export const checkRequiredFlags = (flags: any, flagOptions: OptionFlags) => {
     let found = false
-    for( const [key, value] of Object.entries(flagOptions)) {
-        if(value.required){
+    for (const [key, value] of Object.entries(flagOptions)) {
+        if (value.required) {
             let fnd = Object.keys(flags).includes(key) || Object.keys(flags).includes(value.alias);
-            if(!fnd) found = true;
+            if (!fnd) found = true;
         }
     }
 
@@ -69,7 +69,13 @@ export const checkRequiredFlags = (flags: any, flagOptions: OptionFlags) => {
 }
 
 export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined) => {
-
+    if (flagOptions) {
+        let hasAllRequiredFlags = checkRequiredFlags(flags, flagOptions);
+        if (hasAllRequiredFlags) {
+            render(<Error message="Missing required flags" />);
+            process.exit();
+        }
+    }
 }
 
 const parser = (options: ParserOption) => {
