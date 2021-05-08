@@ -9,12 +9,24 @@
 </p>
 
 </h1>
-A cli parser built using ink
+
+## ink-cli-parser
+ink-cli-parser is a cli parser tool that is built just for [ink](https://github.com/vadimdemedes/ink). You can pass in you custom ink help component and error component. 
 
 
+## Table Of Contents
+- [Getting Started](#getting-started)
+    - [Installation](#installation)
+- [Usage](#usage)
+- [Api reference](#api-reference)
 
-## Installation
-The easiest way to install Poki is using NPM. If you have Node.js installed, it is most likely that you have NPM installed as well
+
+## Getting Started
+To install `ink-cli-parser`, ensure that you have Node.js >=10. [Install nodejs from here](https://nodejs.org/en/)
+
+
+### Installation
+The easiest way to install `ink-cli-parser` is using NPM. If you have Node.js installed, it is most likely that you have NPM installed as well
 
 ```
 $ npm install ink-cli-parser
@@ -23,7 +35,7 @@ $ npm install ink-cli-parser
 ## Usage
 
 ```tsx
-import parser from './index';
+import parser from 'ink-cli-parser';
 import React, { FC } from 'react';
 import { Text, Newline } from 'ink';
 
@@ -47,7 +59,7 @@ const Help: FC<any> = () => {
     </>
 }
 
-let cli = parser(Help);
+let cli = parser({helpComponent: Help});
 
 console.log(cli)
 // {inputs: [], flags: {h: true}}
@@ -56,3 +68,46 @@ console.log(cli)
 ```
 
 ![ss](https://github.com/Souvikns/ink-cli-parser/blob/main/ss.PNG)
+
+
+--- 
+
+## Api Reference
+
+### `parser(options?: object)`
+
+retuns an object with 
+- `inputs` (Array) - non-flag arguments
+- `flags` (Object) - flag arguments
+
+|Parameter|Description|Required|type|
+|---------|-----------|--------|----|
+|options  |Pass this object to control the behaviour of the parser|false|Object|
+|options.helpComponent|Pass custom ink component to render at `-h` or `--help` argument|false|`FC<any>`
+|options.flags|Parser checks for the passed flagoption and then return inputs and flags|false|[`OptionFlags`](#optionflags)
+|options.errorComponent|Pass custom error ink compoennt to change the default.|false|`FC<{message: string}>`
+
+#### `OptionFlags`
+
+Type: 
+```ts
+[name:string]: {
+    required?: boolean,
+    type?: "string" | "boolean" | "number",
+    alias: string
+}
+```
+Example:
+```ts
+watch: {
+    alias: "w",
+    type: "boolean",
+    required: true
+}
+```
+|parameter|requried|default|
+|---------|--------|-------|
+|alias    | true   | `null`|
+|required | false  | false |
+|type     | false  | boolean|
+
