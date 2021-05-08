@@ -58,8 +58,8 @@ export const checkRequiredFlags = (flags: any, flagOptions: OptionFlags) => {
 
 export const checkTypeOfFlags = (flags: any, flagOptions: OptionFlags) => {
     let found = false;
-    for (const [key, value] of Object.entries(flagOptions)){
-        if(value.type){
+    for (const [key, value] of Object.entries(flagOptions)) {
+        if (value.type) {
             found = typeof flags[key] !== value.type;
         }
     }
@@ -67,18 +67,24 @@ export const checkTypeOfFlags = (flags: any, flagOptions: OptionFlags) => {
     return found
 }
 
-export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined) => {
+export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined, Error: FC<{ message: string }>) => {
     if (flagOptions) {
         let hasAllRequiredFlags = checkRequiredFlags(flags, flagOptions);
+        let hasCorrectType = checkTypeOfFlags(flags, flagOptions);
         if (hasAllRequiredFlags) {
             render(<Error message="Missing required flags" />);
+            process.exit();
+        }
+
+        if(hasCorrectType){
+            render(<Error message="incorrect type" />);
             process.exit();
         }
     }
 }
 
 const parser = (options?: ParserOption) => {
-    let ErrorComponent: FC<{ message: string }> | undefined = options?.option?.errorComponent || Error;
+    let ErrorComponent: FC<{ message: string }> = options?.option?.errorComponent || Error;
     let HelpComponent: FC<any> | undefined = options?.helpComponent;
 
     let { inputs, flags } = getCli();
@@ -88,8 +94,8 @@ const parser = (options?: ParserOption) => {
         renderHelpComponent(HelpComponent);
     }
 
-    if(options){
-        checkFlags(flags, options.flags);
+    if (options) {
+        checkFlags(flags, options.flags, ErrorComponent);
     }
 
     return { inputs, flags };

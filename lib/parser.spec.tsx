@@ -79,13 +79,18 @@ describe("checkRequiredFlags", () => {
 })
 
 describe("checkTypeOfFlags", () => {
-    it("should return flase", () => {
+    it("should return flase when the type match", () => {
         let found = checkTypeOfFlags({ watch: "file" }, { watch: { alias: "w", type: "string" } });
         expect(found).toBeFalsy();
     })
 
-    it("Should return true", () => {
+    it("Should return true when the type does not match", () => {
         let found = checkTypeOfFlags({ w: "23" }, { watch: { alias: "w", type: "number" } });
         expect(found).toBeTruthy();
+    })
+
+    it("should return false when type is not specified", () => {
+        let found = checkTypeOfFlags({ watch: true }, { watch: { alias: 'w' } });
+        expect(found).toBeFalsy();
     })
 })
