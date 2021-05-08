@@ -1,4 +1,4 @@
-import parser, { ParserOption, checkForHelpFlags, checkRequiredFlags } from './parser';
+import parser, { checkTypeOfFlags, checkForHelpFlags, checkRequiredFlags } from './parser';
 import React, { FC } from 'react';
 import { Text } from 'ink';
 
@@ -76,4 +76,16 @@ describe("checkRequiredFlags", () => {
         expect(checkRequiredFlags({}, {})).toBeFalsy();
     })
 
+})
+
+describe("checkTypeOfFlags", () => {
+    it("should return flase", () => {
+        let found = checkTypeOfFlags({ watch: "file" }, { watch: { alias: "w", type: "string" } });
+        expect(found).toBeFalsy();
+    })
+
+    it("Should return true", () => {
+        let found = checkTypeOfFlags({ w: "23" }, { watch: { alias: "w", type: "number" } });
+        expect(found).toBeTruthy();
+    })
 })

@@ -56,6 +56,17 @@ export const checkRequiredFlags = (flags: any, flagOptions: OptionFlags) => {
     return found
 }
 
+export const checkTypeOfFlags = (flags: any, flagOptions: OptionFlags) => {
+    let found = false;
+    for (const [key, value] of Object.entries(flagOptions)){
+        if(value.type){
+            found = typeof flags[key] !== value.type;
+        }
+    }
+
+    return found
+}
+
 export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined) => {
     if (flagOptions) {
         let hasAllRequiredFlags = checkRequiredFlags(flags, flagOptions);
@@ -78,7 +89,7 @@ const parser = (options?: ParserOption) => {
     }
 
     if(options){
-        checkFlags(flags, options.flags)
+        checkFlags(flags, options.flags);
     }
 
     return { inputs, flags };
