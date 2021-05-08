@@ -1,11 +1,4 @@
 import parser, { checkTypeOfFlags, checkForHelpFlags, checkRequiredFlags } from './parser';
-import React, { FC } from 'react';
-import { Text } from 'ink';
-
-const HelpComponent: FC<any> = () => {
-
-    return <Text>Help</Text>;
-}
 
 const checkHelpcommand = (
     isHelpDisabled: boolean | undefined,
