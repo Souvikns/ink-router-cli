@@ -1,6 +1,6 @@
 {
   "name": "ink-cli-parser",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A cli parser built using ink for ink",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

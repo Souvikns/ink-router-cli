@@ -16,9 +16,8 @@ export interface OptionFlags {
 export interface ParserOption {
     helpComponent?: FC<{ message: string }>,
     flags?: OptionFlags
-    option?: {
-        errorComponent?: FC<any>,
-    }
+    errorComponent?: FC<any>,
+
 }
 
 export const getCli = (): { inputs: string[], flags: any } => {
@@ -76,7 +75,7 @@ export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined, Err
             process.exit();
         }
 
-        if(hasCorrectType){
+        if (hasCorrectType) {
             render(<Error message="incorrect type" />);
             process.exit();
         }
@@ -84,7 +83,7 @@ export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined, Err
 }
 
 const parser = (options?: ParserOption) => {
-    let ErrorComponent: FC<{ message: string }> = options?.option?.errorComponent || Error;
+    let ErrorComponent: FC<{ message: string }> = options?.errorComponent || Error;
     let HelpComponent: FC<any> | undefined = options?.helpComponent;
 
     let { inputs, flags } = getCli();
