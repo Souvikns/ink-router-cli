@@ -16,9 +16,8 @@ export interface OptionFlags {
 export interface ParserOption {
     helpComponent?: FC<{ message: string }>,
     flags?: OptionFlags
-    option: {
+    option?: {
         errorComponent?: FC<any>,
-        disableHelp?: boolean
     }
 }
 
@@ -32,20 +31,9 @@ export const getCli = (): { inputs: string[], flags: any } => {
     return { inputs, flags };
 }
 
-export const checkAndRenderHelpCommand = (
-    isHelpDisabled: boolean | undefined,
-    HelpComponent: FC<any> | undefined,
-    ErrorComponent: FC<{ message: string }>
-) => {
-    if (!isHelpDisabled) {
-        if (typeof HelpComponent !== "undefined") {
-            render(<HelpComponent />)
-            process.exit();
-        } else {
-            render(<ErrorComponent message="If help is not dissabled then pass a help component" />);
-            process.exit();
-        }
-    }
+export const renderHelpComponent = (HelpComponent: FC<any>) => {
+    render(<HelpComponent />);
+    process.exit();
 }
 
 export const checkForHelpFlags = (flags: any): boolean => {
@@ -78,18 +66,20 @@ export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined) => 
     }
 }
 
-const parser = (options: ParserOption) => {
-    let ErrorComponent: FC<{ message: string }> = (options.option.errorComponent) ? options.option.errorComponent : Error
-    let HelpComponent: FC<any> | undefined = (!options.option.disableHelp) ? options.helpComponent : undefined;
+const parser = (options?: ParserOption) => {
+    let ErrorComponent: FC<{ message: string }> | undefined = options?.option?.errorComponent || Error;
+    let HelpComponent: FC<any> | undefined = options?.helpComponent;
 
     let { inputs, flags } = getCli();
 
     // TODO: If cli do not has -h or --help flag then we will perform checks if any
-    (checkForHelpFlags(flags)) ? checkAndRenderHelpCommand(
-        options.option.disableHelp,
-        HelpComponent,
-        ErrorComponent
-    ) : checkFlags(flags, (options.flags) ? options.flags : undefined);
+    if (HelpComponent && checkForHelpFlags(flags)) {
+        renderHelpComponent(HelpComponent);
+    }
+
+    if(options){
+        checkFlags(flags, options.flags)
+    }
 
     return { inputs, flags };
 }

@@ -1,4 +1,11 @@
 import parser, { ParserOption, checkForHelpFlags, checkRequiredFlags } from './parser';
+import React, { FC } from 'react';
+import { Text } from 'ink';
+
+const HelpComponent: FC<any> = () => {
+
+    return <Text>Help</Text>;
+}
 
 const checkHelpcommand = (
     isHelpDisabled: boolean | undefined,
@@ -20,14 +27,12 @@ describe("parser", () => {
     it("should exist", () => {
         expect(parser).toBeTruthy();
     })
-})
 
-describe("parserOption", () => {
-    it("should have helpOption undefined if help is disabled", () => {
-        let options: ParserOption = { option: { disableHelp: true } };
-        expect((options.option.disableHelp) ? options.helpComponent : null).toBeUndefined();
+    it("should return help component ", () => {
+        let cli = parser();
     })
 })
+
 
 describe("checkForHelpFlags", () => {
     it("should return true", () => {
@@ -63,8 +68,8 @@ describe("checkRequiredFlags", () => {
 
     it("should return false", () => {
         expect(checkRequiredFlags({ w: true }, { watch: { alias: "w", required: true } })).toBeFalsy();
-        expect(checkRequiredFlags({watch: true}, {watch: {alias: "w"}})).toBeFalsy();
-        expect(checkRequiredFlags({watch: true}, {watch: {alias: "w", required: true}})).toBeFalsy();
+        expect(checkRequiredFlags({ watch: true }, { watch: { alias: "w" } })).toBeFalsy();
+        expect(checkRequiredFlags({ watch: true }, { watch: { alias: "w", required: true } })).toBeFalsy();
     })
 
     it("should return false if no options was passed", () => {
