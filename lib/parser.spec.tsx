@@ -1,4 +1,4 @@
-import parser, { ParserOption, checkForHelpFlags } from './parser';
+import parser, { checkTypeOfFlags, checkForHelpFlags, checkRequiredFlags } from './parser';
 
 const checkHelpcommand = (
     isHelpDisabled: boolean | undefined,
@@ -20,14 +20,12 @@ describe("parser", () => {
     it("should exist", () => {
         expect(parser).toBeTruthy();
     })
-})
 
-describe("parserOption", () => {
-    it("should have helpOption undefined if help is disabled", () => {
-        let options: ParserOption = { option: { disableHelp: true } };
-        expect((options.option.disableHelp) ? options.helpComponent : null).toBeUndefined();
+    it("should return help component ", () => {
+        let cli = parser();
     })
 })
+
 
 describe("checkForHelpFlags", () => {
     it("should return true", () => {
@@ -53,5 +51,39 @@ describe('checkAndRenderHelpCommand', () => {
 
     it("should return error Component", () => {
         expect(checkHelpcommand(undefined, undefined, "error")).toMatch(/error/);
+    })
+})
+
+describe("checkRequiredFlags", () => {
+    it("should return true", () => {
+        expect(checkRequiredFlags({}, { watch: { alias: "w", required: true } })).toBeTruthy()
+    })
+
+    it("should return false", () => {
+        expect(checkRequiredFlags({ w: true }, { watch: { alias: "w", required: true } })).toBeFalsy();
+        expect(checkRequiredFlags({ watch: true }, { watch: { alias: "w" } })).toBeFalsy();
+        expect(checkRequiredFlags({ watch: true }, { watch: { alias: "w", required: true } })).toBeFalsy();
+    })
+
+    it("should return false if no options was passed", () => {
+        expect(checkRequiredFlags({}, {})).toBeFalsy();
+    })
+
+})
+
+describe("checkTypeOfFlags", () => {
+    it("should return flase when the type match", () => {
+        let found = checkTypeOfFlags({ watch: "file" }, { watch: { alias: "w", type: "string" } });
+        expect(found).toBeFalsy();
+    })
+
+    it("Should return true when the type does not match", () => {
+        let found = checkTypeOfFlags({ w: "23" }, { watch: { alias: "w", type: "number" } });
+        expect(found).toBeTruthy();
+    })
+
+    it("should return false when type is not specified", () => {
+        let found = checkTypeOfFlags({ watch: true }, { watch: { alias: 'w' } });
+        expect(found).toBeFalsy();
     })
 })

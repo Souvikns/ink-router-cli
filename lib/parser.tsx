@@ -3,11 +3,21 @@ import React, { FC } from 'react';
 import Error from './components/error';
 import { render } from 'ink';
 
+export type OptionType = "boolean" | "string" | "number"
+
+export interface OptionFlags {
+    [name: string]: {
+        required?: boolean,
+        type?: OptionType,
+        alias: string
+    }
+}
+
 export interface ParserOption {
     helpComponent?: FC<{ message: string }>,
-    option: {
+    flags?: OptionFlags
+    option?: {
         errorComponent?: FC<any>,
-        disableHelp?: boolean
     }
 }
 
@@ -21,20 +31,9 @@ export const getCli = (): { inputs: string[], flags: any } => {
     return { inputs, flags };
 }
 
-export const checkAndRenderHelpCommand = (
-    isHelpDisabled: boolean | undefined,
-    HelpComponent: FC<any> | undefined,
-    ErrorComponent: FC<{ message: string }>
-) => {
-    if (!isHelpDisabled) {
-        if (typeof HelpComponent !== "undefined") {
-            render(<HelpComponent />)
-            process.exit();
-        } else {
-            render(<ErrorComponent message="If help is not dissabled then pass a help component" />);
-            process.exit();
-        }
-    }
+export const renderHelpComponent = (HelpComponent: FC<any>) => {
+    render(<HelpComponent />);
+    process.exit();
 }
 
 export const checkForHelpFlags = (flags: any): boolean => {
@@ -45,17 +44,59 @@ export const checkForHelpFlags = (flags: any): boolean => {
     return false
 }
 
-const parser = (options: ParserOption) => {
-    let ErrorComponent: FC<{ message: string }> = (options.option.errorComponent) ? options.option.errorComponent : Error
-    let HelpComponent: FC<any> | undefined = (!options.option.disableHelp) ? options.helpComponent : undefined;
+export const checkRequiredFlags = (flags: any, flagOptions: OptionFlags) => {
+    let found = false
+    for (const [key, value] of Object.entries(flagOptions)) {
+        if (value.required) {
+            let fnd = Object.keys(flags).includes(key) || Object.keys(flags).includes(value.alias);
+            if (!fnd) found = true;
+        }
+    }
+
+    return found
+}
+
+export const checkTypeOfFlags = (flags: any, flagOptions: OptionFlags) => {
+    let found = false;
+    for (const [key, value] of Object.entries(flagOptions)) {
+        if (value.type) {
+            found = typeof flags[key] !== value.type;
+        }
+    }
+
+    return found
+}
+
+export const checkFlags = (flags: any, flagOptions: OptionFlags | undefined, Error: FC<{ message: string }>) => {
+    if (flagOptions) {
+        let hasAllRequiredFlags = checkRequiredFlags(flags, flagOptions);
+        let hasCorrectType = checkTypeOfFlags(flags, flagOptions);
+        if (hasAllRequiredFlags) {
+            render(<Error message="Missing required flags" />);
+            process.exit();
+        }
+
+        if(hasCorrectType){
+            render(<Error message="incorrect type" />);
+            process.exit();
+        }
+    }
+}
+
+const parser = (options?: ParserOption) => {
+    let ErrorComponent: FC<{ message: string }> = options?.option?.errorComponent || Error;
+    let HelpComponent: FC<any> | undefined = options?.helpComponent;
 
     let { inputs, flags } = getCli();
 
-    (checkForHelpFlags(flags)) ? checkAndRenderHelpCommand(
-        options.option.disableHelp,
-        HelpComponent,
-        ErrorComponent
-    ) : null;
+    // TODO: If cli do not has -h or --help flag then we will perform checks if any
+    if (HelpComponent && checkForHelpFlags(flags)) {
+        renderHelpComponent(HelpComponent);
+    }
+
+    if (options) {
+        checkFlags(flags, options.flags, ErrorComponent);
+    }
 
     return { inputs, flags };
 }
