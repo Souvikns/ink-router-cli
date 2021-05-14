@@ -1,8 +1,8 @@
 import React, { useReducer, createContext, FC } from 'react';
 
-const store = createContext({});
+export const store = createContext({});
 
-const Router: FC<{}> = ({ children }) => {
+export const Router: FC<{}> = ({ children }) => {
     let [state, dispatch] = useReducer((state: any, action: any) => {
         switch (action.type) {
 
