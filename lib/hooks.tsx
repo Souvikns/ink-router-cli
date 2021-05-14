@@ -1,6 +1,6 @@
 import React from 'react';
 import { store } from './router';
-export const useHistory = () => {
+export const useCli = () => {
     const { state } = React.useContext(store) as { state: { inputs: string[], flags: any } };
     let [command, ...args] = state.inputs;
     return {
