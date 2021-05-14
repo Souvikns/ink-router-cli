@@ -1,10 +1,8 @@
 import React from 'react';
 import { store } from './router'
 import { Command } from './command';
+import { SwitchProps } from './types';
 
-export interface SwitchProps {
-    children: React.ReactNode
-}
 
 export const Switch = (props: SwitchProps) => {
     const children = React.Children.toArray(props.children) as React.ReactElement[];
