@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { store } from './router';
 
-export const Command: React.FC<{name?: string}> = ({ children }) => {
-    let red: any = React.useContext(store);
-    return <>{children}</>
+export interface CommandProps {
+    children: React.ReactNode,
+    name: string
+}
+
+export const Command = (props: CommandProps) => {
+    return <>{props.children}</>
 }
