@@ -10,13 +10,21 @@ export interface SwitchProps {
 }
 
 export interface CommandProps {
-    children?:React.ReactNode,
+    children?: React.ReactNode,
     name: string,
     description?: string,
-    component?:React.ReactElement,
+    component?: React.ReactElement,
 }
 
 export interface Cli {
     inputs: string[],
     flags: any
+}
+
+export interface FlagProps {
+    name: string,
+    alias: string,
+    children?: React.ReactNode,
+    component?: React.ReactElement
+    description?: string
 }
