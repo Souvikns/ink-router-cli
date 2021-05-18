@@ -1,14 +1,15 @@
 import React from 'react';
 import { store } from './router'
 import { Command } from './command';
-import { SwitchProps } from './types';
+import { SwitchProps, HelpCommands, HelpFlags } from './types';
 import { Flag } from './flags';
+import Help from './components/help';
 
 
 export const Switch = (props: SwitchProps) => {
     const children = React.Children.toArray(props.children) as React.ReactElement[];
     let st: any = React.useContext(store);
-    // get all the commands and flags from the command and flag compoents
+
     let commands = children.filter(c => c.type === Command).map(c => ({
         name: c.props.name,
         description: c.props.description,
@@ -19,6 +20,11 @@ export const Switch = (props: SwitchProps) => {
         name: c.props.name,
         alias: c.props.alias
     }))
+
+    if (st.state.flags.help || st.state.flags.h) {
+        return <Help commands={commands as Array<HelpCommands>} flags={flags as Array<HelpFlags>} />
+    }
+
     let MatchedComponent = children.find(c => c.type === Command && st.state.inputs[0] === c.props.name);
     let FlagComponent = children.find(
         c => c.type === Flag &&

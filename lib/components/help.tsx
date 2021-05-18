@@ -1,31 +1,13 @@
 import React, { FC } from 'react';
+import { Text } from 'ink';
+import { HelpCommands, HelpFlags } from '../types';
 
 const Help: FC<{
-    commands: [{
-        name: string,
-        description: string,
-        inputs: {
-            [name: string]: {
-                required: string,
-                type: string
-            }
-        },
-        flags: {
-            [name: string]: {
-                alias: string,
-                description: string
-            }
-        }
-    }],
-    flags: {
-        [name: string]: {
-            alias: string,
-            description: string
-        }
-    }
+    commands: Array<HelpCommands>,
+    flags: Array<HelpFlags>
 }> = () => {
 
-    return <></>
+    return <Text>Hello</Text>
 }
 
 

@@ -41,3 +41,35 @@ export interface FlagProps {
     component?: React.ReactElement
     description?: string
 }
+
+export type inputType = "string" | "boolean" | "number"
+
+export interface CommandFlags {
+    [name: string]: {
+        alias: string,
+        type: inputType
+    }
+}
+
+export interface CommandInput {
+    [name: string]: {
+        type: inputType,
+        requried: boolean
+    }
+}
+
+export interface HelpProp{
+
+}
+
+export interface HelpCommands {
+    name: string,
+    description?: string,
+    inputs?: CommandInput,
+    flags?: CommandFlags
+}
+
+export interface HelpFlags {
+    name: string,
+    alias: string
+}
