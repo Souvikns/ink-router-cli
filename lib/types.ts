@@ -1,8 +1,21 @@
 import React from 'react';
 
+export interface ContextState {
+    inputs: string[],
+    flags: any,
+    config: {
+        autoHelp?: boolean,
+        name?: string,
+        description?: string
+    }
+}
+
 export interface RouterProps {
     children: React.ReactNode,
-    argv: string[]
+    argv: string[],
+    name?: string,
+    description?: string,
+    autoHelp?: boolean
 }
 
 export interface SwitchProps {
