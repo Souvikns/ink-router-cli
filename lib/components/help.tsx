@@ -14,7 +14,7 @@ const Help: FC<{
         <Text><Text color="greenBright">Usage</Text>: {config.name} [options] {(commands) ? "[command]" : null}</Text>
         <Newline />
         <Text><Text color="yellowBright">Options</Text>: </Text>
-        {flags?.map(el => <Text key={el.name}>-{el.alias}, --{el.name}</Text>)}
+        {flags?.map(el => <Text key={el.name}>-{el.alias}, --{el.name} {el.description}</Text>)}
         <Newline />
         <Text><Text color="blueBright">Commands</Text>: </Text>
         {commands?.map(command => <Text key={command.name}>{command.name} {(command.flags) ? "[options]" : null} {command.description}</Text>)}

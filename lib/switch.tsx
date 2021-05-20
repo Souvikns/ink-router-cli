@@ -18,7 +18,8 @@ export const Switch = (props: SwitchProps) => {
     }));
     let flags = children.filter(c => c.type === Flag).map(c => ({
         name: c.props.name,
-        alias: c.props.alias
+        alias: c.props.alias,
+       description: c.props.description 
     }))
 
     if (st.state.flags.help || st.state.flags.h) {

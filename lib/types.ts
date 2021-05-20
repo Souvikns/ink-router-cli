@@ -58,7 +58,7 @@ export interface CommandInput {
     }
 }
 
-export interface HelpProp{
+export interface HelpProp {
 
 }
 
@@ -71,5 +71,6 @@ export interface HelpCommands {
 
 export interface HelpFlags {
     name: string,
-    alias: string
+    alias: string,
+    description?: string
 }
