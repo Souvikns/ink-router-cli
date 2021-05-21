@@ -1,7 +1,7 @@
-import parser from './index';
+import { Router } from './index';
 
 describe("parser", () => {
     it("should exist", () => {
-        expect(parser).toBeTruthy();
+        expect(Router).toBeTruthy();
     })
 })
