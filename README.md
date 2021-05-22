@@ -41,36 +41,25 @@ $ npm install ink-cli-parser
 ## Usage
 
 ```tsx
-import parser from 'ink-cli-parser';
-import React, { FC } from 'react';
-import { Text, Newline } from 'ink';
+import React, { FC } from "react";
+import { Router, Switch, Command } from "ink-cli-router";
+import { render, Text } from "ink";
 
-const Help: FC<any> = () => {
+const Create = () => {
+  return <Text>{"Creating file"}</Text>;
+};
 
-    return <>
+const App: FC<{ any }> = () => {
+  return (
+    <Router argv={process.argv}>
+      <Switch>
+        <Command name="create" component={<Create />} />
+      </Switch>
+    </Router>
+  );
+};
 
-        <Text backgroundColor="greenBright" bold color="white" > USAGE </Text>
-        <Newline />
-        <Text>$ cli-command {"<command>"} [options]</Text>
-        <Newline />
-        <Text backgroundColor="cyanBright" bold color="white" > COMMANDS </Text>
-        <Newline />
-        <Text><Text color="cyanBright">new</Text> creates a new file</Text>
-        <Text><Text color="cyanBright">duplicate</Text> duplicates a existing file</Text>
-        <Newline />
-        <Text backgroundColor="yellowBright" bold color="black" > OPTIONS </Text>
-        <Newline />
-        <Text><Text color="yellowBright">--random</Text> prints random data</Text>
-
-    </>
-}
-
-let cli = parser({helpComponent: Help});
-
-console.log(cli)
-// {inputs: [], flags: {h: true}}
-}
-
+render(<App />);
 ```
 
 ![ss](https://github.com/Souvikns/ink-cli-parser/blob/main/ss.PNG)
@@ -79,44 +68,41 @@ console.log(cli)
 
 ## Api Reference
 
-### `parser(options?: object)`
+### Components
 
-retuns an object with
+### `<Router>`
 
-- `inputs` (Array) - non-flag arguments
-- `flags` (Object) - flag arguments
+A `<Router>` that uses react context to keep the UI sync with the CLI argument
+and falgs
 
-| Parameter              | Description                                                              | Required | type                          |
-| ---------------------- | ------------------------------------------------------------------------ | -------- | ----------------------------- |
-| options                | Pass this object to control the behaviour of the parser                  | false    | Object                        |
-| options.helpComponent  | Pass custom ink component to render at `-h` or `--help` argument         | false    | `FC<any>`                     |
-| options.flags          | Parser checks for the passed flagoption and then return inputs and flags | false    | [`OptionFlags`](#optionflags) |
-| options.errorComponent | Pass custom error ink compoennt to change the default.                   | false    | `FC<{message: string}>`       |
+`argv`: string[] <br> `name`?: string <br> `description`?: string <br>
+`autoHelp`?: boolean
 
-#### `OptionFlags`
+### `<Switch>`
 
-Type:
+Renders only the command and flags that match the CLI arguments
+
+### `<Command>`
+
+`name`: string <br> `description`?: string <br> `component`?: React.ReactElement
+
+### `<Flags>`
+
+`name`: string <br> `alias`: string <br> `component`?: React.ReactElement <br>
+`description`?: string <br>
+
+### Hooks
+
+#### `useCli`
+
+Use this hook to get the CLI arguments
+
+returns
 
 ```ts
-[name:string]: {
-    required?: boolean,
-    type?: "string" | "boolean" | "number",
-    alias: string
+{
+    command: string | undefined
+    arguments: string[] | undefined
+    flags: any
 }
 ```
-
-Example:
-
-```ts
-watch: {
-    alias: "w",
-    type: "boolean",
-    required: true
-}
-```
-
-| parameter | requried | default |
-| --------- | -------- | ------- |
-| alias     | true     | `null`  |
-| required  | false    | false   |
-| type      | false    | boolean |
