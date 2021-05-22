@@ -41,25 +41,25 @@ $ npm install ink-cli-parser
 ## Usage
 
 ```tsx
-import React, {FC} from 'react';
-import {Router, Switch, Command} from 'ink-cli-router';
-import {render, Text} from 'ink';
+import React, { FC } from "react";
+import { Router, Switch, Command } from "ink-cli-router";
+import { render, Text } from "ink";
 
 const Create = () => {
-    return <Text>{"Creating file"}</Text>
-}
+  return <Text>{"Creating file"}</Text>;
+};
 
-const App: FC<{any}> = () => {
-    
-    return <Router argv={process.argv}>
-        <Switch>
-            <Command name="create" component={<Create />} />
-        </Switch>
+const App: FC<{ any }> = () => {
+  return (
+    <Router argv={process.argv}>
+      <Switch>
+        <Command name="create" component={<Create />} />
+      </Switch>
     </Router>
-}
+  );
+};
 
 render(<App />);
-
 ```
 
 ![ss](https://github.com/Souvikns/ink-cli-parser/blob/main/ss.PNG)
@@ -68,40 +68,37 @@ render(<App />);
 
 ## Api Reference
 
-### Components 
+### Components
 
 ### `<Router>`
 
-A `<Router>` that uses react context to keep the UI sync with the CLI argument and falgs
+A `<Router>` that uses react context to keep the UI sync with the CLI argument
+and falgs
 
-`argv`: string[] <br>
-`name`?: string <br>
-`description`?: string <br>
+`argv`: string[] <br> `name`?: string <br> `description`?: string <br>
 `autoHelp`?: boolean
 
 ### `<Switch>`
-Renders only the command and flags that match the CLI arguments 
 
+Renders only the command and flags that match the CLI arguments
 
 ### `<Command>`
 
-`name`: string <br>
-`description`?: string <br>
-`component`?: React.ReactElement
+`name`: string <br> `description`?: string <br> `component`?: React.ReactElement
 
 ### `<Flags>`
 
-`name`: string <br>
-`alias`: string <br>
-`component`?: React.ReactElement <br>
+`name`: string <br> `alias`: string <br> `component`?: React.ReactElement <br>
 `description`?: string <br>
 
 ### Hooks
 
 #### `useCli`
-Use this hook to get the CLI arguments 
 
-returns 
+Use this hook to get the CLI arguments
+
+returns
+
 ```ts
 {
     command: string | undefined
