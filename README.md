@@ -1,4 +1,4 @@
-<h1 align="center">ink-cli-parser
+<h1 align="center">Ink-Router-Cli
 <br> <br>
 <p align="center">
 
