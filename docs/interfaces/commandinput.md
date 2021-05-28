@@ -4,4 +4,5 @@
 
 ## Indexable
 
-▪ [name: *string*]: { `requried`: *boolean* ; `type`: [*inputType*](../modules.md#inputtype)  }
+▪ [name: *string*]: { `requried`: _boolean_ ; `type`:
+[_inputType_](../modules.md#inputtype) }

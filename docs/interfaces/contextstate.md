@@ -14,30 +14,33 @@
 
 ### config
 
-• **config**: *object*
+• **config**: _object_
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `autoHelp?` | *boolean* |
-| `description?` | *string* |
-| `name?` | *string* |
+| Name           | Type      |
+| :------------- | :-------- |
+| `autoHelp?`    | _boolean_ |
+| `description?` | _string_  |
+| `name?`        | _string_  |
 
-Defined in: [types.ts:6](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L6)
+Defined in:
+[types.ts:6](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L6)
 
-___
+---
 
 ### flags
 
-• **flags**: *any*
+• **flags**: _any_
 
-Defined in: [types.ts:5](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L5)
+Defined in:
+[types.ts:5](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L5)
 
-___
+---
 
 ### inputs
 
-• **inputs**: *string*[]
+• **inputs**: _string_[]
 
-Defined in: [types.ts:4](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L4)
+Defined in:
+[types.ts:4](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L4)

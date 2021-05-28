@@ -17,28 +17,33 @@
 
 • `Optional` **children**: ReactNode
 
-Defined in: [types.ts:26](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L26)
+Defined in:
+[types.ts:26](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L26)
 
-___
+---
 
 ### component
 
-• `Optional` **component**: *ReactElement*<any, string \| JSXElementConstructor<any\>\>
+• `Optional` **component**: _ReactElement_<any, string \|
+JSXElementConstructor<any\>\>
 
-Defined in: [types.ts:29](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L29)
+Defined in:
+[types.ts:29](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L29)
 
-___
+---
 
 ### description
 
-• `Optional` **description**: *string*
+• `Optional` **description**: _string_
 
-Defined in: [types.ts:28](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L28)
+Defined in:
+[types.ts:28](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L28)
 
-___
+---
 
 ### name
 
-• **name**: *string*
+• **name**: _string_
 
-Defined in: [types.ts:27](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L27)
+Defined in:
+[types.ts:27](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L27)

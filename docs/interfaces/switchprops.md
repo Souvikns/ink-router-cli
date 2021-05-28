@@ -14,4 +14,5 @@
 
 • **children**: ReactNode
 
-Defined in: [types.ts:22](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L22)
+Defined in:
+[types.ts:22](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L22)
