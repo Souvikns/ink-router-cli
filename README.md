@@ -1,4 +1,7 @@
-<h1 align="center"><img src="https://github.com/Souvikns/ink-router-cli/blob/main/static/connection.svg" width="30" /> &nbsp; Ink-Router-Cli
+<p align="center">
+<img src="https://github.com/Souvikns/ink-router-cli/blob/main/static/connection.svg" width="200" />
+</p>
+<h1 align="center">  Ink-Router-Cli
 <br> <br>
 <p align="center">
 
