@@ -34,86 +34,95 @@
 
 ### inputType
 
-Ƭ **inputType**: ``"string"`` \| ``"boolean"`` \| ``"number"``
+Ƭ **inputType**: `"string"` \| `"boolean"` \| `"number"`
 
-Defined in: [types.ts:45](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L45)
+Defined in:
+[types.ts:45](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L45)
 
 ## Functions
 
 ### Command
 
-▸ `Const` **Command**(`props`: [*CommandProps*](interfaces/commandprops.md)): *Element*
+▸ `Const` **Command**(`props`: [_CommandProps_](interfaces/commandprops.md)):
+_Element_
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `props` | [*CommandProps*](interfaces/commandprops.md) |
+| Name    | Type                                         |
+| :------ | :------------------------------------------- |
+| `props` | [_CommandProps_](interfaces/commandprops.md) |
 
-**Returns:** *Element*
+**Returns:** _Element_
 
-Defined in: [command.tsx:5](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/command.tsx#L5)
+Defined in:
+[command.tsx:5](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/command.tsx#L5)
 
-___
+---
 
 ### Router
 
-▸ `Const` **Router**(`__namedParameters`: [*RouterProps*](interfaces/routerprops.md)): *Element*
+▸ `Const` **Router**(`__namedParameters`:
+[_RouterProps_](interfaces/routerprops.md)): _Element_
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `__namedParameters` | [*RouterProps*](interfaces/routerprops.md) |
+| Name                | Type                                       |
+| :------------------ | :----------------------------------------- |
+| `__namedParameters` | [_RouterProps_](interfaces/routerprops.md) |
 
-**Returns:** *Element*
+**Returns:** _Element_
 
-Defined in: [router.tsx:7](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/router.tsx#L7)
+Defined in:
+[router.tsx:7](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/router.tsx#L7)
 
-___
+---
 
 ### Switch
 
-▸ `Const` **Switch**(`props`: [*SwitchProps*](interfaces/switchprops.md)): *Element*
+▸ `Const` **Switch**(`props`: [_SwitchProps_](interfaces/switchprops.md)):
+_Element_
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `props` | [*SwitchProps*](interfaces/switchprops.md) |
+| Name    | Type                                       |
+| :------ | :----------------------------------------- |
+| `props` | [_SwitchProps_](interfaces/switchprops.md) |
 
-**Returns:** *Element*
+**Returns:** _Element_
 
-Defined in: [switch.tsx:9](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/switch.tsx#L9)
+Defined in:
+[switch.tsx:9](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/switch.tsx#L9)
 
-___
+---
 
 ### useCli
 
-▸ `Const` **useCli**(): *object*
+▸ `Const` **useCli**(): _object_
 
-**Returns:** *object*
+**Returns:** _object_
 
-| Name | Type |
-| :------ | :------ |
-| `arguments` | *string*[] |
-| `command` | *string* |
-| `flags` | *any* |
+| Name        | Type       |
+| :---------- | :--------- |
+| `arguments` | _string_[] |
+| `command`   | _string_   |
+| `flags`     | _any_      |
 
-Defined in: [hooks.tsx:6](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/hooks.tsx#L6)
+Defined in:
+[hooks.tsx:6](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/hooks.tsx#L6)
 
-___
+---
 
 ### useConfig
 
-▸ `Const` **useConfig**(): *object*
+▸ `Const` **useConfig**(): _object_
 
-**Returns:** *object*
+**Returns:** _object_
 
-| Name | Type |
-| :------ | :------ |
-| `autoHelp?` | *boolean* |
-| `description?` | *string* |
-| `name?` | *string* |
+| Name           | Type      |
+| :------------- | :-------- |
+| `autoHelp?`    | _boolean_ |
+| `description?` | _string_  |
+| `name?`        | _string_  |
 
-Defined in: [hooks.tsx:16](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/hooks.tsx#L16)
+Defined in:
+[hooks.tsx:16](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/hooks.tsx#L16)

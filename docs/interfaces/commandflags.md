@@ -4,4 +4,5 @@
 
 ## Indexable
 
-▪ [name: *string*]: { `alias`: *string* ; `type`: [*inputType*](../modules.md#inputtype)  }
+▪ [name: *string*]: { `alias`: _string_ ; `type`:
+[_inputType_](../modules.md#inputtype) }
