@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/Souvikns/ink-cli-parser/actions/workflows/node.js.yml"><img alt="GitHub license" src="https://github.com/Souvikns/ink-cli-parser/actions/workflows/node.js.yml/badge.svg"></a>
-<a href="https://github.com/Souvikns/ink-cli-parser/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Souvikns/ink-cli-parser"></a>
+<a href="https://github.com/Souvikns/ink-router-cli/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Souvikns/ink-cli-parser"></a>
 <a href="https://deepscan.io/dashboard#view=project&tid=8580&pid=17016&bid=374285"><img src="https://deepscan.io/api/teams/8580/projects/17016/branches/374285/badge/grade.svg" alt="DeepScan grade"></a>
 <img alt="npm" src="https://img.shields.io/npm/dw/ink-cli-parser">
 
