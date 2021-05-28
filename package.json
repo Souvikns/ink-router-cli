@@ -12,7 +12,7 @@
     "test": "jest",
     "build": "tsc",
     "test:watch": "jest --watch",
-    "doc": "typedoc --media ./static --theme minimal --readme ./api.md --out docs lib/index.tsx"
+    "doc": "typedoc --excludePrivate --excludeProtected --includeVersion --media ./static --readme ./api.md --out docs lib/index.tsx"
   },
   "repository": {
     "type": "git",
