@@ -13,14 +13,16 @@
 
 ### flags
 
-• **flags**: *any*
+• **flags**: _any_
 
-Defined in: [types.ts:34](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L34)
+Defined in:
+[types.ts:34](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L34)
 
-___
+---
 
 ### inputs
 
-• **inputs**: *string*[]
+• **inputs**: _string_[]
 
-Defined in: [types.ts:33](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L33)
+Defined in:
+[types.ts:33](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L33)

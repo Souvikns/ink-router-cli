@@ -15,30 +15,34 @@
 
 ### description
 
-• `Optional` **description**: *string*
+• `Optional` **description**: _string_
 
-Defined in: [types.ts:67](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L67)
+Defined in:
+[types.ts:67](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L67)
 
-___
+---
 
 ### flags
 
-• `Optional` **flags**: [*CommandFlags*](commandflags.md)
+• `Optional` **flags**: [_CommandFlags_](commandflags.md)
 
-Defined in: [types.ts:69](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L69)
+Defined in:
+[types.ts:69](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L69)
 
-___
+---
 
 ### inputs
 
-• `Optional` **inputs**: [*CommandInput*](commandinput.md)
+• `Optional` **inputs**: [_CommandInput_](commandinput.md)
 
-Defined in: [types.ts:68](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L68)
+Defined in:
+[types.ts:68](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L68)
 
-___
+---
 
 ### name
 
-• **name**: *string*
+• **name**: _string_
 
-Defined in: [types.ts:66](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L66)
+Defined in:
+[types.ts:66](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L66)

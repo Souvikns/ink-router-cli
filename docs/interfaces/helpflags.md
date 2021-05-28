@@ -14,22 +14,25 @@
 
 ### alias
 
-• **alias**: *string*
+• **alias**: _string_
 
-Defined in: [types.ts:74](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L74)
+Defined in:
+[types.ts:74](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L74)
 
-___
+---
 
 ### description
 
-• `Optional` **description**: *string*
+• `Optional` **description**: _string_
 
-Defined in: [types.ts:75](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L75)
+Defined in:
+[types.ts:75](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L75)
 
-___
+---
 
 ### name
 
-• **name**: *string*
+• **name**: _string_
 
-Defined in: [types.ts:73](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L73)
+Defined in:
+[types.ts:73](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L73)

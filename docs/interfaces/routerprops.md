@@ -16,38 +16,43 @@
 
 ### argv
 
-• **argv**: *string*[]
+• **argv**: _string_[]
 
-Defined in: [types.ts:15](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L15)
+Defined in:
+[types.ts:15](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L15)
 
-___
+---
 
 ### autoHelp
 
-• `Optional` **autoHelp**: *boolean*
+• `Optional` **autoHelp**: _boolean_
 
-Defined in: [types.ts:18](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L18)
+Defined in:
+[types.ts:18](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L18)
 
-___
+---
 
 ### children
 
 • **children**: ReactNode
 
-Defined in: [types.ts:14](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L14)
+Defined in:
+[types.ts:14](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L14)
 
-___
+---
 
 ### description
 
-• `Optional` **description**: *string*
+• `Optional` **description**: _string_
 
-Defined in: [types.ts:17](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L17)
+Defined in:
+[types.ts:17](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L17)
 
-___
+---
 
 ### name
 
-• `Optional` **name**: *string*
+• `Optional` **name**: _string_
 
-Defined in: [types.ts:16](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L16)
+Defined in:
+[types.ts:16](https://github.com/Souvikns/ink-cli-parser/blob/e7f88e8/lib/types.ts#L16)
