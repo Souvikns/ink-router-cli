@@ -4,6 +4,14 @@ import { RouterProps, ContextState } from './types'
 
 export const store = createContext({});
 
+/**
+ * 
+ * ```typescript
+ * render(<Router argv={process.argv}>
+ *  <App />
+ * </Router)
+ * ```
+ */
 export const Router = ({ children, argv, autoHelp, description, name }: RouterProps) => {
     let args = yargs(argv.splice(2));
     let inputs = args._;
