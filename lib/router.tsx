@@ -5,7 +5,7 @@ import { RouterProps, ContextState } from './types'
 export const store = createContext({});
 
 /**
- * 
+ *
  * ```typescript
  * render(<Router argv={process.argv}>
  *  <App />

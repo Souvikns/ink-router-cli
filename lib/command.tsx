@@ -2,9 +2,9 @@ import * as React from 'react';
 import { CommandProps } from './types';
 
 /**
- * 
- * @param props 
- * 
+ *
+ * @param props
+ *
  * ```typescript
  * <Command name="create" component={<Create />} />
  * ```
