@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Text } from 'ink';
+import { Box, Text, Newline } from 'ink';
 import Spinner from 'ink-spinner';
 import Axios from 'axios';
 import { useCli } from 'ink-router-cli';
@@ -52,7 +52,10 @@ const User = () => {
         return <Box paddingX={2} paddingY={1}>
             <Box flexDirection="row" justifyContent="center" borderStyle="round" borderColor="green" paddingX={1}>
                 <Text>
-                    {user && <Text>{user.login}</Text>}
+                   {Object.keys(user).map(key => <Text key={key}>
+                       <Text> <Text color="magenta">{key}</Text> : <Text color="cyan">{user[key]}</Text> </Text>
+                       <Newline />
+                   </Text>)}
                 </Text>
             </Box>
 
