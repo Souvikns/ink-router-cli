@@ -4,9 +4,14 @@ import { Command } from './command';
 import { SwitchProps, HelpCommands, HelpFlags } from './types';
 import { Flag } from './flags';
 import Help from './components/help';
+import { useCli } from './hooks';
 
 
 export const Switch = (props: SwitchProps) => {
+    let cli = useCli();
+    // TODO: check for noMatch case
+    // TODO: check for flag case
+    // TODO: check for command case
     const children = React.Children.toArray(props.children) as React.ReactElement[];
     let st: any = React.useContext(store);
 
@@ -19,7 +24,7 @@ export const Switch = (props: SwitchProps) => {
     let flags = children.filter(c => c.type === Flag).map(c => ({
         name: c.props.name,
         alias: c.props.alias,
-       description: c.props.description 
+        description: c.props.description
     }))
 
     if (st.state.flags.help || st.state.flags.h) {
