@@ -6,13 +6,15 @@ export interface ContextState {
     config: {
         autoHelp?: boolean,
         name?: string,
-        description?: string
+        description?: string,
+        version?: string
     }
 }
 
 export interface RouterProps {
     children: React.ReactNode,
-    argv: string[],
+    argv?: string[],
+    version?: string
     name?: string,
     description?: string,
     autoHelp?: boolean
