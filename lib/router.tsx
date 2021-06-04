@@ -6,9 +6,9 @@ import { Text } from 'ink';
 export const store = createContext({});
 
 /**
- * 
- * @param argv 
- * @returns 
+ *
+ * @param argv
+ * @returns
  */
 const parse = (argv?: string[]): { input: string[], flags: any } => {
     let cli;
