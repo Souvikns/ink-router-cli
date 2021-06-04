@@ -32,7 +32,7 @@ export interface CommandProps {
 }
 
 export interface NoMatchProps {
-    childred?: React.ReactNode,
+    children?: React.ReactNode,
     component?: React.ReactElement
 }
 
