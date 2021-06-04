@@ -5,7 +5,7 @@ import meow from 'meow';
 export const store = createContext({});
 
 /**
- * 
+ *
  * ```typescript
  * render(<Router argv={process.argv}>
  *  <App />
