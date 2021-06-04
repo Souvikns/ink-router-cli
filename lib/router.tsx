@@ -1,11 +1,11 @@
 import React, { createContext } from 'react';
-import yargs from 'yargs-parser';
 import { RouterProps, ContextState } from './types'
+import meow from 'meow';
 
 export const store = createContext({});
 
 /**
- * 
+ *
  * ```typescript
  * render(<Router argv={process.argv}>
  *  <App />
@@ -13,10 +13,7 @@ export const store = createContext({});
  * ```
  */
 export const Router = ({ children, argv, autoHelp, description, name }: RouterProps) => {
-    let args = yargs(argv.splice(2));
-    let inputs = args._;
-    // @ts-ignore
-    delete args._;
-    let state: ContextState = { inputs, flags: args, config: { autoHelp, name, description } }
+    let { input, flags } = meow('', { autoHelp: false, argv: argv.splice(2) });
+    let state: ContextState = { input, flags, config: { autoHelp, name, description } }
     return <store.Provider value={{ state }}>{children}</store.Provider>
 }
