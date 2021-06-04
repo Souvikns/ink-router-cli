@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface ContextState {
-    inputs: string[],
+    input: string[],
     flags: any,
     config: {
         autoHelp?: boolean,

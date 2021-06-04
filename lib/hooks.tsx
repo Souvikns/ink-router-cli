@@ -5,7 +5,7 @@ import { ContextState } from './types';
 
 export const useCli = () => {
     const { state } = React.useContext(store) as { state: ContextState };
-    let [command, ...args] = state.inputs;
+    let [command, ...args] = state.input;
     return {
         command,
         arguments: args,
