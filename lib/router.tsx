@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import { RouterProps, ContextState } from './types'
 import meow from 'meow';
+import { Text } from 'ink';
 
 export const store = createContext({});
 
@@ -39,6 +40,11 @@ export const Router = ({ children, argv, autoHelp, description, name, version }:
             name,
             version,
             description
+        }
+    }
+    if (autoHelp) {
+        if (!name) {
+            return <Text color="red">Pass name prop if you are auto generating help!</Text>
         }
     }
     return <store.Provider value={{ state }}>{children}</store.Provider>
