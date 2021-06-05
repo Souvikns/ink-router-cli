@@ -20,13 +20,14 @@ export const Switch = (props: SwitchProps) => {
     let noMatchComponent = children.filter(c => c.type === NoMatch);
 
     if (!_.isEmpty(cli.flags)) {
-        // @ts-ignore
-        Object.keys(cli.flags).forEach(el => {
-            let flagComp = flagComponent.find(c => c.props.name === el || c.props.alias === el);
-            if (flagComp && (flagComp.props.children || flagComp.props.component)) {
-                return <>{flagComp}</>
-            }
-        })
+        let flagComp = flagComponent.find(c =>
+            Object.keys(cli.flags).includes(c.props.name) ||
+            Object.keys(cli.flags).includes(c.props.alias)
+        );
+
+        if (flagComp) {
+            return flagComp;
+        }
     }
 
 
