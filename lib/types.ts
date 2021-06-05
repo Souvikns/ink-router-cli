@@ -31,6 +31,11 @@ export interface CommandProps {
     component?: React.ReactElement,
 }
 
+export interface NoMatchProps {
+    children?: React.ReactNode,
+    component?: React.ReactElement
+}
+
 export interface Cli {
     inputs: string[],
     flags: any
