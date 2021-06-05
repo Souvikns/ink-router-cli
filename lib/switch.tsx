@@ -19,6 +19,21 @@ export const Switch = (props: SwitchProps) => {
     let flagComponent = children.filter(c => c.type === Flag);
     let noMatchComponent = children.filter(c => c.type === NoMatch);
 
+    if (!_.isEmpty(cli.flags)) {
+        // @ts-ignore
+        Object.keys(cli.flags).forEach(el => {
+            let flagComp = flagComponent.find(c => c.props.name === el || c.props.alias === el);
+            if (flagComp && (flagComp.props.children || flagComp.props.component)) {
+                return <>{flagComp}</>
+            }
+        })
+    }
+
+
+    if (cli.command) {
+        let matchedCommand = commandComponents.find(c => c.props.name === cli.command);
+        return <>{matchedCommand}</>
+    }
 
     if (typeof cli.command === "undefined" && _.isEmpty(cli.flags)) {
         return <>{noMatchComponent}</>;
