@@ -9,7 +9,7 @@ const CommandInput: FC<{ inputs: CommandInputInterface }> = ({ inputs }) => {
         for (const [name, command] of Object.entries(inputs)) {
             inps.push({
                 name,
-                required: command.requried
+                required: command.requried || false
             })
         }
 

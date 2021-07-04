@@ -29,6 +29,8 @@ export interface CommandProps {
     name: string,
     description?: string,
     component?: React.ReactElement,
+    inputs?: CommandInput,
+    flags?: CommandFlags
 }
 
 export interface NoMatchProps {
@@ -54,14 +56,14 @@ export type inputType = "string" | "boolean" | "number"
 export interface CommandFlags {
     [name: string]: {
         alias: string,
-        type: inputType
+        type?: inputType
     }
 }
 
 export interface CommandInput {
     [name: string]: {
         type: inputType,
-        requried: boolean
+        requried?: boolean
     }
 }
 
