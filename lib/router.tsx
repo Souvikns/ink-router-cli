@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, FunctionComponent } from 'react';
 import { RouterProps, ContextState } from './types'
 import meow from 'meow';
 import { Text } from 'ink';
@@ -30,21 +30,15 @@ const parse = (argv?: string[]): { input: string[], flags: any } => {
  * </Router)
  * ```
  */
-export const Router = ({ children, argv, autoHelp, description, name, version }: RouterProps) => {
+export const Router: FunctionComponent<RouterProps> = ({ children, argv, description, name, version }: RouterProps) => {
     let { input, flags } = parse(argv);
     let state: ContextState = {
         input,
         flags,
         config: {
-            autoHelp,
             name,
             version,
             description
-        }
-    }
-    if (autoHelp) {
-        if (!name) {
-            return <Text color="red">Pass name prop if you are auto generating help!</Text>
         }
     }
     return <store.Provider value={{ state }}>{children}</store.Provider>

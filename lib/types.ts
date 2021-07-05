@@ -4,7 +4,6 @@ export interface ContextState {
     input: string[],
     flags: any,
     config: {
-        autoHelp?: boolean,
         name?: string,
         description?: string,
         version?: string
