@@ -1,19 +1,13 @@
-import React, { ReactElement } from 'react';
-import { store } from './router'
+import React from 'react';
 import { Command } from './command';
-import { SwitchProps, HelpCommands, HelpFlags } from './types';
+import { SwitchProps } from './types';
 import { Flag } from './flags';
 import { NoMatch } from './nomatch';
-import Help from './components/help';
-import { useCli, useConfig } from './hooks';
+import { useCli } from './hooks';
 import _ from 'lodash';
 
 export const Switch = (props: SwitchProps) => {
     let cli = useCli();
-    let config = useConfig();
-    // TODO: check for noMatch case
-    // TODO: check for flag case
-    // TODO: check for command case
     const children = React.Children.toArray(props.children) as React.ReactElement[];
     let commandComponents = children.filter(c => c.type === Command);
     let flagComponent = children.filter(c => c.type === Flag);
